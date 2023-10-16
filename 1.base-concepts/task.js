@@ -14,17 +14,20 @@ function solveEquation(a, b, c) {
 		let root3 = -b / (2 * a);
 
 		arr.push(root3);
-	}
+
+	} 
 
 	return arr;
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  let percent = parseInt(percent) / 100 / 12; //Процентная ставка
-  let contr = parseInt(contribution); //начальный взнос
-  let amount = parseInt(amount); //Общая стоимость
-  let loan = amount - contr; //Тело кредита
-  let pay = loan * (percent + (percent / (((1 + percent)**countMonths) - 1))); //Ежемесячная оплата
-  let totalAmount = (pay * countMonths).toFixed(2); 
-  }
+	let interestRate = parseInt(percent) / 100 / 12; 
+	let deposit = parseInt(contribution); 
+	let amountLoan = parseInt(amount);
+
+	let bodyLoan = amountLoan - deposit;
+	let pay = bodyLoan * (interestRate + (interestRate / (((1 + interestRate)**countMonths) - 1)));
+	let totalAmount = (pay * countMonths).toFixed(2);
+		return +totalAmount;
+	
 }
